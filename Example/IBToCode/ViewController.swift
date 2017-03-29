@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IBToCode
 
 class ViewController: UIViewController {
 

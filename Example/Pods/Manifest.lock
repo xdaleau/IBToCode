@@ -1,0 +1,16 @@
+PODS:
+  - IBToCode (0.1.0)
+
+DEPENDENCIES:
+  - IBToCode (from `../`)
+
+EXTERNAL SOURCES:
+  IBToCode:
+    :path: ../
+
+SPEC CHECKSUMS:
+  IBToCode: 5587371613768c35b243e623ef165bfcb9c65199
+
+PODFILE CHECKSUM: 4f3f7dc1327b2f51e42ccd30c25b0cceaaa3fda7
+
+COCOAPODS: 1.1.1

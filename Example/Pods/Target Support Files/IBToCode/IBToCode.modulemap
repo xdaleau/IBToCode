@@ -1,0 +1,6 @@
+framework module IBToCode {
+  umbrella header "IBToCode-umbrella.h"
+
+  export *
+  module * { export * }
+}

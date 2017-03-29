@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'IBToCode'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of IBToCode.'
+  s.summary          = 'Generate the code to recreate a layout made in Interface Builder programmatically.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,13 +18,13 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+This library helps you build views programmatically by turning a layout made in Interface Builder into the code needed to build the equivalent layout in code (Swift 3 for the moment).
                        DESC
 
   s.homepage         = 'https://github.com/xdaleau/IBToCode'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'xdaleau' => 'xavier.daleau@gmail.com' }
+  s.license          = { :type => 'AGPLv3', :file => 'LICENSE' }
+  s.author           = { 'Xavier Daleau' => 'xavier.daleau@gmail.com' }
   s.source           = { :git => 'https://github.com/xdaleau/IBToCode.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
@@ -37,6 +37,6 @@ TODO: Add long description of the pod here.
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.frameworks = 'UIKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
