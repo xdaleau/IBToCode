@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'IBToCode_Example' do
+  pod 'IBToCode', :path => '../'
+
+  target 'IBToCode_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
