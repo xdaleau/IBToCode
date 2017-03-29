@@ -190,7 +190,13 @@ public class IBToCode {
         // loop over children if view is UIView (otherwise, we also get the labels inside buttons for example
         
         let viewType = type(of:view)
-        if viewType == UIView.self || viewType == UIScrollView.self || viewType == UIStackView.self {
+        
+        var shouldLoopOverSubViews:Bool = viewType == UIView.self || viewType == UIScrollView.self
+        if #available(iOS 9.0, *) {
+            shouldLoopOverSubViews = viewType == UIView.self || viewType == UIScrollView.self || viewType == UIStackView.self
+        }
+        
+        if shouldLoopOverSubViews {
             
             // Sort subviews, could be improved
             

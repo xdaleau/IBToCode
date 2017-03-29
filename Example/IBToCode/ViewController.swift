@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  IBToCode
+//  IBToCodeSampleProject
 //
-//  Created by xdaleau on 03/29/2017.
-//  Copyright (c) 2017 xdaleau. All rights reserved.
+//  Created by Xavier Daleau on 27/03/2017.
+//  Copyright © 2017 Xavier Daleau. All rights reserved.
 //
 
 import UIKit
@@ -13,13 +13,22 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // you can chose between the nsLayoutConstaint (default), anchors, or SnapKit 3 constaints syntax.
+        // IBToCode.constraintFormat = .snapKit3
+        
+        
+        // IBTC.sortingMode = .topToDown
+        
+        IBToCode.generateCode(viewController: self)
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
 
 }
 

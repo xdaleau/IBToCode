@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-This library helps you build views programmatically by turning a layout made in Interface Builder into the code needed to build the equivalent layout in code (Swift 3 for the moment).
+This library helps you build views programmatically by turning a layout made in Interface Builder into the code needed to build the equivalent layout in code (Swift 3 for the moment). It recreate the view hierarchy, constraints (in SnapKit or Anchors syntax on option) and extract a few basic properties, like backgroundColor and titles.
                        DESC
 
   s.homepage         = 'https://github.com/xdaleau/IBToCode'
