@@ -72,8 +72,7 @@ class IBTCOutput {
             
             codeOutput.append("\nlet \(hierarchy.name) = \(viewType)()\n")
             codeOutput.append("\(parentName).addSubview(\(hierarchy.name))\n")
-            // TODO
-            //print(hierarchy.view.contentHuggingPriority(for: .horizontal))
+           
             
             // log properties
             if let properties = hierarchy.properties {
@@ -210,9 +209,6 @@ class IBTCOutput {
             }
         }
         
-        //print("*     secondItemType \(String(describing:type(of:constraint.secondItem)))")
-        
-        //print("\(type(of:constraint.firstItem)) \(type(of:constraint.secondItem)) ")
         
         var result = ""
         if (constraint.firstAttribute == .width || constraint.firstAttribute == .height) && secondItemName == "nil"{
@@ -297,7 +293,9 @@ class IBTCOutput {
         var relation = convertRelation(relation: constraint.relation)
         let firstAttr = convertAttribute(attribute: constraint.firstAttribute)
         let secondAttr = convertAttribute(attribute: constraint.secondAttribute)
-        let isActive = constraint.isActive ? "true" : "false"
+        
+        //Fixme = isActive is not reliable
+        //let isActive = constraint.isActive ? "true" : "false"
         
         var firstItemName = "nil"
         if let firstView = constraint.firstItem as? UIView {
@@ -340,7 +338,9 @@ class IBTCOutput {
             secondItemString += ", multiplier: \(constraint.multiplier)"
         }
     
-        let result = "\(firstItemName).\(firstAttr)Anchor.constraint(\(relation): \(secondItemString)).isActive = \(isActive)"
+        let result = "\(firstItemName).\(firstAttr)Anchor.constraint(\(relation): \(secondItemString))"
+        
+        //let result = "\(firstItemName).\(firstAttr)Anchor.constraint(\(relation): \(secondItemString)).isActive = \(isActive)"       
         
         return (result)
     }
@@ -357,7 +357,11 @@ class IBTCOutput {
             if constraintsSets[convertedConstraint.constraintTargetViewName] == nil {
                 constraintsSets[convertedConstraint.constraintTargetViewName] = []
             }
-            let isActive = constraint.isActive
+            
+            // Fixme: constraint.isActive is not reliable
+            // let isActive = constraint.isActive
+            let isActive = true
+           
             if isActive {
                 constraintsSets[convertedConstraint.constraintTargetViewName]!.append(convertedConstraint.varName)
             }

@@ -77,7 +77,7 @@ public class IBToCode {
     }
     
     
-    public static let version = 0.3
+    public static let version = "0.1.1"
 
     
     /// You can chose here the way you want the layout constraints to be written. Options are anchor constraints, regular constraints and Snapkit.
