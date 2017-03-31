@@ -31,12 +31,8 @@ This library helps you build views programmatically by turning a layout made in 
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'IBToCode/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'IBToCode' => ['IBToCode/Assets/*.png']
-  # }
+
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

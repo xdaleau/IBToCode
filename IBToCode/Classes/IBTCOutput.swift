@@ -340,7 +340,7 @@ class IBTCOutput {
     
         let result = "\(firstItemName).\(firstAttr)Anchor.constraint(\(relation): \(secondItemString))"
         
-        //let result = "\(firstItemName).\(firstAttr)Anchor.constraint(\(relation): \(secondItemString)).isActive = \(isActive)"       
+        //let result = "\(firstItemName).\(firstAttr)Anchor.constraint(\(relation): \(secondItemString)).isActive = \(isActive)"
         
         return (result)
     }
@@ -359,14 +359,17 @@ class IBTCOutput {
             }
             
             // Fixme: constraint.isActive is not reliable
-            // let isActive = constraint.isActive
-            let isActive = true
+             /*let isActive = constraint.isActive
+           
            
             if isActive {
                 constraintsSets[convertedConstraint.constraintTargetViewName]!.append(convertedConstraint.varName)
             }
             let prefix = isActive ? "" : "//"
-            result += prefix + convertedConstraint.output + "\n"
+            result += prefix + convertedConstraint.output + "\n"*/
+            
+            constraintsSets[convertedConstraint.constraintTargetViewName]!.append(convertedConstraint.varName)
+            result += convertedConstraint.output
         }
         
         for item2Name in constraintsSets.keys {

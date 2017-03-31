@@ -1,5 +1,5 @@
 PODS:
-  - IBToCode (0.1.0)
+  - IBToCode (0.1.1)
 
 DEPENDENCIES:
   - IBToCode (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  IBToCode: 9ef6107d2ac2a4cc18e615b44e0376591a4ce105
+  IBToCode: 9e0a33e15d83c82c28674ae22d40bb33cf6723cb
 
 PODFILE CHECKSUM: 4f3f7dc1327b2f51e42ccd30c25b0cceaaa3fda7
 
