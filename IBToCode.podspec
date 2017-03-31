@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IBToCode'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'Generate the code to recreate a layout made in Interface Builder programmatically.'
 
 # This description is used to generate tags and improve search results.
