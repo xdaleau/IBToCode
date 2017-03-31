@@ -40,7 +40,7 @@ class MyViewController: UIViewController {
 
 ## Author
 
-Xavier Daleau
+Xavier Daleau (ibtocode@gmail.com)
 
 ## License
 
