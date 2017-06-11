@@ -60,7 +60,7 @@ class IBTCOutput {
     }
     
     /// Log the generated code
-    class func logCode(hierarchy:IBTCView, viewController:UIViewController, depth:UInt = 0){
+    class func logCode(hierarchy:IBTCView, viewController:UIViewController?, depth:UInt = 0){
         if depth == 0 {
             codeOutput = ""
         }
@@ -116,7 +116,7 @@ class IBTCOutput {
     
     // SNAPKIT Output Syntax
     
-    class func getSnapKit3Code(viewController: UIViewController, rootHierarchy: IBTCView, currentView: IBTCView, constraints:[NSLayoutConstraint]) ->String {
+    class func getSnapKit3Code(viewController: UIViewController?, rootHierarchy: IBTCView, currentView: IBTCView, constraints:[NSLayoutConstraint]) ->String {
         var result = "\(currentView.name).translatesAutoresizingMaskIntoConstraints = false\n" + "\(currentView.name).snp.makeConstraints { (make) -> Void in\n"
         for constraint in constraints{
             result += "    " + convertToSnapKit3(viewController: viewController, rootHierarchy: rootHierarchy, constraint: constraint)+"\n"
@@ -126,7 +126,7 @@ class IBTCOutput {
         return result
     }
     
-    class func convertToSnapKit3(viewController: UIViewController, rootHierarchy: IBTCView, constraint:NSLayoutConstraint) ->String{
+    class func convertToSnapKit3(viewController: UIViewController?, rootHierarchy: IBTCView, constraint:NSLayoutConstraint) ->String{
         
         // TODO: handle priorities
         // TODO: replace "view 2" by "superview" when possible
@@ -199,16 +199,17 @@ class IBTCOutput {
         }
         
         // Support top and bottom layout guide
-        if let layoutGuide = constraint.secondItem as? UILayoutSupport {
-            //print("Casting to UILayoutSupport OK !!!!")
-            if layoutGuide === viewController.topLayoutGuide {
-                secondItemName = "topLayoutGuide"
-            }
-            if layoutGuide === viewController.bottomLayoutGuide {
-                secondItemName = "bottomLayoutGuide"
+        if viewController != nil {
+            if let layoutGuide = constraint.secondItem as? UILayoutSupport {
+                //print("Casting to UILayoutSupport OK !!!!")
+                if layoutGuide === viewController?.topLayoutGuide {
+                    secondItemName = "topLayoutGuide"
+                }
+                if layoutGuide === viewController?.bottomLayoutGuide {
+                    secondItemName = "bottomLayoutGuide"
+                }
             }
         }
-        
         
         var result = ""
         if (constraint.firstAttribute == .width || constraint.firstAttribute == .height) && secondItemName == "nil"{
@@ -226,7 +227,7 @@ class IBTCOutput {
     
     // Anchors Output syntax
     
-    class func getAnchorsConstraintCode(viewController: UIViewController, rootHierarchy: IBTCView, currentView: IBTCView, constraints:[NSLayoutConstraint]) ->String {
+    class func getAnchorsConstraintCode(viewController: UIViewController?, rootHierarchy: IBTCView, currentView: IBTCView, constraints:[NSLayoutConstraint]) ->String {
         var result = "\(currentView.name).translatesAutoresizingMaskIntoConstraints = false\n"
         
         for constraint in constraints{
@@ -237,7 +238,7 @@ class IBTCOutput {
     }
     
     
-    class func convertToAnchorConstraint(viewController: UIViewController, rootHierarchy: IBTCView, constraint:NSLayoutConstraint) -> String {
+    class func convertToAnchorConstraint(viewController: UIViewController?, rootHierarchy: IBTCView, constraint:NSLayoutConstraint) -> String {
         
         // TODO: handle priorities
         
@@ -313,13 +314,15 @@ class IBTCOutput {
         
         
         // Support top and bottom layout guide
-        if let layoutGuide = constraint.secondItem as? UILayoutSupport {
-            //print("Casting to UILayoutSupport OK !!!!")
-            if layoutGuide === viewController.topLayoutGuide {
-                secondItemName = "topLayoutGuide"
-            }
-            if layoutGuide === viewController.bottomLayoutGuide {
-                secondItemName = "bottomLayoutGuide"
+        if viewController != nil {
+            if let layoutGuide = constraint.secondItem as? UILayoutSupport{
+                //print("Casting to UILayoutSupport OK !!!!")
+                if layoutGuide === viewController?.topLayoutGuide {
+                    secondItemName = "topLayoutGuide"
+                }
+                if layoutGuide === viewController?.bottomLayoutGuide {
+                    secondItemName = "bottomLayoutGuide"
+                }
             }
         }
         
@@ -347,7 +350,7 @@ class IBTCOutput {
     
     // NSLayoutConstraint Output syntax
     
-    class func getNSLayoutConstraintCode(viewController: UIViewController, rootHierarchy: IBTCView, currentView: IBTCView, constraints:[NSLayoutConstraint]) ->String {
+    class func getNSLayoutConstraintCode(viewController: UIViewController?, rootHierarchy: IBTCView, currentView: IBTCView, constraints:[NSLayoutConstraint]) ->String {
         var result = "\(currentView.name).translatesAutoresizingMaskIntoConstraints = false\n"
         var constraintsSets: Dictionary<String, [String]> = Dictionary()
         for constraint in constraints{
@@ -381,7 +384,7 @@ class IBTCOutput {
     }
     
     
-    class func convertToNSLayoutConstraint(viewController: UIViewController, rootHierarchy: IBTCView, constraint:NSLayoutConstraint) -> (varName:String, constraintTargetViewName:String, output:String) {
+    class func convertToNSLayoutConstraint(viewController: UIViewController?, rootHierarchy: IBTCView, constraint:NSLayoutConstraint) -> (varName:String, constraintTargetViewName:String, output:String) {
         
         // TODO: handle priorities
         
@@ -487,13 +490,15 @@ class IBTCOutput {
 
         
         // Support top and bottom layout guide
-        if let layoutGuide = constraint.secondItem as? UILayoutSupport {
-            //print("Casting to UILayoutSupport OK !!!!")
-            if layoutGuide === viewController.topLayoutGuide {
-                secondItemName = "topLayoutGuide"
-            }
-            if layoutGuide === viewController.bottomLayoutGuide {
-                secondItemName = "bottomLayoutGuide"
+        if viewController != nil {
+            if let layoutGuide = constraint.secondItem as? UILayoutSupport  {
+                //print("Casting to UILayoutSupport OK !!!!")
+                if layoutGuide === viewController?.topLayoutGuide {
+                    secondItemName = "topLayoutGuide"
+                }
+                if layoutGuide === viewController?.bottomLayoutGuide {
+                    secondItemName = "bottomLayoutGuide"
+                }
             }
         }
         

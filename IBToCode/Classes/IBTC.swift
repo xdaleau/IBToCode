@@ -125,17 +125,17 @@ public class IBToCode {
         }
     }
     
-    public class func generateCode(viewController: UIViewController, view:UIView? = nil){
+    public class func generateCode(viewController: UIViewController?, view:UIView? = nil){
         // we now need viewController to access topLayoutGuide and bottomLayoutGuide
         // we take the view parameter as root or by default the viewController's view
-        let targetView = view == nil ? viewController.view : view
+        let targetView = view == nil ? viewController?.view : view
         if targetView != nil {
             buildHierarchy(view: targetView!, viewController:viewController)
         }
     }
     
     /// Rebuild the view hierarchy, and log the generated code in the console.
-    class func buildHierarchy(view:UIView, viewController:UIViewController, depth:UInt = 0, siblingsCount:UInt = 0, hierarchy:IBTCView? = nil, order:UInt=0){
+    class func buildHierarchy(view:UIView, viewController:UIViewController?, depth:UInt = 0, siblingsCount:UInt = 0, hierarchy:IBTCView? = nil, order:UInt=0){
         
         let hasSuperview = view.superview != nil    
         var tmpOrder = order
@@ -245,7 +245,7 @@ public class IBToCode {
         // End of process, Hierarchy is built
         if depth == 0 {
             
-            // rename view_0_0 view when we can resonably think that this is the viewController's (root) view
+            // rename view_0_0 view when we can reasonably think that this is the viewController's (root) view
             if let rootView = tmpHierarchy {
                 if rootView.constraints.count == 0 {
                     rootView.name = "view"
@@ -341,7 +341,6 @@ public class IBToCode {
             if let firstItemAsUIView = $0.firstItem as? UIView {
                 if let root = getHierarchyRoot(hierarchy: hierarchy) {
                     //print("search in hierarchy  \(firstItemAsUIView.tag) \(root.subviews.count)")
-                    
                     
                     if let firstItemAsView = findViewInHierachy(view: firstItemAsUIView, hierarchy: root){
                         

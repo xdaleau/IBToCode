@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/IBToCode.svg?style=flat)](http://cocoapods.org/pods/IBToCode)
 
 
-##Description
+## Description
 
 IBToCode helps you build your iOS UI programmatically faster by generating the Swift code needed to recreate programmatically the UI you made with Interface Builder.  
 It recreates the view hierarchy, constraints, and a few basic properties like the background colors and buttons titles.
@@ -78,7 +78,7 @@ class MyViewController: UIViewController {
 
 ## Author
 
-Xavier Daleau (ibtocode@gmail.com)
+Xavier Daleau (ibtocode@gmail.com) 
 
 ## License
 

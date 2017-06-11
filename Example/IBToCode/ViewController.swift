@@ -20,8 +20,11 @@ class ViewController: UIViewController {
         
         // IBTC.sortingMode = .topToDown
         
+        // Use the viewController as source to get the UILayoutGuide constraints
         IBToCode.generateCode(viewController: self)
-
+        
+        // If you want to use a view as source:
+        //IBToCode.generateCode(viewController:nil, view: view)
     }
 
     override func didReceiveMemoryWarning() {
