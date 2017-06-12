@@ -77,7 +77,7 @@ public class IBToCode {
     }
     
     
-    public static let version = "0.1.1"
+    public static let version = "0.1.3"
 
     
     /// You can chose here the way you want the layout constraints to be written. Options are anchor constraints, regular constraints and Snapkit.
@@ -191,10 +191,7 @@ public class IBToCode {
         
         let viewType = type(of:view)
         
-        var shouldLoopOverSubViews:Bool = viewType == UIView.self || viewType == UIScrollView.self
-        if #available(iOS 9.0, *) {
-            shouldLoopOverSubViews = viewType == UIView.self || viewType == UIScrollView.self || viewType == UIStackView.self
-        }
+        let shouldLoopOverSubViews:Bool = ["UIView", "UIScrollView", "UIStackView", "UITableViewCellContentView"].contains(String(describing: viewType))
         
         if shouldLoopOverSubViews {
             
