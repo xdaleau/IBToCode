@@ -503,7 +503,7 @@ class IBTCOutput {
         }
         
         let varName = "\(firstItemName)\(firstAttr.capitalized)Constraint"
-        let result = "let \(varName) = NSLayoutConstraint(item: \(firstItemName), attribute: .\(firstAttr), relatedBy: .\(relation), toItem: \(secondItemName), attribute: .\(secondAtt), multiplier: \(constraint.multiplier), constant: \(constraint.constant))"
+        let result = "let \(varName) = NSLayoutConstraint(item: \(firstItemName), attribute: .\(firstAttr), relatedBy: .\(relation), toItem: \(secondItemName), attribute: .\(secondAtt), multiplier: \(constraint.multiplier), constant: \(constraint.constant))\n"
         
         return (varName: varName, constraintTargetViewName: targetViewName, output: result)
     }
