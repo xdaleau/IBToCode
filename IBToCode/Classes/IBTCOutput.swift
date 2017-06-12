@@ -131,6 +131,7 @@ class IBTCOutput {
         // TODO: handle priorities
         // TODO: replace "view 2" by "superview" when possible
         // TODO: omit attributes when identical
+        // TODO: check constraints ending in "Margin"
         
         // Inner functions
         func convertAttribute(attribute:NSLayoutAttribute)->String{
@@ -146,8 +147,6 @@ class IBTCOutput {
                 result = "trailing"
             case .top:
                 result = "top"
-            case .topMargin:
-                result = "top"
             case .bottom:
                 result = "bottom"
             case .centerX:
@@ -162,6 +161,18 @@ class IBTCOutput {
                 result = "width"
             case .height:
                 result = "height"
+            case .leadingMargin:
+                result = "leadingMargin"
+            case .trailingMargin:
+                result = "trailingMargin"
+            case .topMargin:
+                result = "topMargin"
+            case .bottomMargin:
+                result = "bottomMargin"
+            case .leftMargin:
+                result = "leftMargin"
+            case .rightMargin:
+                result = "rightMargin"
             default:()
             }
             return result
@@ -256,8 +267,6 @@ class IBTCOutput {
                 result = "trailing"
             case .top:
                 result = "top"
-            case .topMargin:
-                result = "top"
             case .bottom:
                 result = "bottom"
             case .centerX:
@@ -272,6 +281,18 @@ class IBTCOutput {
                 result = "centerX"
             case .centerYWithinMargins:
                 result = "centerY"
+            case .leadingMargin:
+                result = "leadingMargin"
+            case .trailingMargin:
+                result = "trailingMargin"
+            case .topMargin:
+                result = "topMargin"
+            case .bottomMargin:
+                result = "bottomMargin"
+            case .leftMargin:
+                result = "leftMargin"
+            case .rightMargin:
+                result = "rightMargin"
             default:
                 result = "notAnAttribute"
             }
@@ -402,8 +423,6 @@ class IBTCOutput {
                 result = "trailing"
             case .top:
                 result = "top"
-            case .topMargin:
-                result = "top"
             case .bottom:
                 result = "bottom"
             case .centerX:
@@ -418,6 +437,18 @@ class IBTCOutput {
                 result = "width"
             case .height:
                 result = "height"
+            case .leadingMargin:
+                result = "leadingMargin"
+            case .trailingMargin:
+                result = "trailingMargin"
+            case .topMargin:
+                result = "topMargin"
+            case .bottomMargin:
+                result = "bottomMargin"
+            case .leftMargin:
+                result = "leftMargin"
+            case .rightMargin:
+                result = "rightMargin"
             default:
                 result = "notAnAttribute"
             }
